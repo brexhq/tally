@@ -30,8 +30,8 @@ import (
 
 	prom "github.com/prometheus/client_golang/prometheus"
 
+	"github.com/brexhq/tally"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/uber-go/tally"
 )
 
 const (

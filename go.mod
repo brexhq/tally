@@ -1,4 +1,4 @@
-module github.com/uber-go/tally
+module github.com/brexhq/tally
 
 go 1.14
 

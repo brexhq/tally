@@ -23,7 +23,7 @@ package multi
 import (
 	"time"
 
-	"github.com/uber-go/tally"
+	"github.com/brexhq/tally"
 )
 
 type multi struct {
