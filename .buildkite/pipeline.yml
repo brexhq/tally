@@ -1,5 +1,4 @@
 steps:
-  - wait
   - label: ":hammer: Example Script"
     command: "go version"
     timeout_in_minutes: 15
