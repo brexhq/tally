@@ -1,3 +1,4 @@
+steps:
 - label: "Build"
   command: make
   timeout_in_minutes: 15
@@ -22,7 +23,6 @@
           - DATADOG_API_KEY
           - DATADOG_APP_KEY
           - SLACK_API_TOKEN
-
 - label: "Lint"
   command: echo "lint"
   timeout_in_minutes: 15
