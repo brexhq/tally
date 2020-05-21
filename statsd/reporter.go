@@ -26,7 +26,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/uber-go/tally"
+	"github.com/brexhq/tally"
 
 	"github.com/cactus/go-statsd-client/statsd"
 )
