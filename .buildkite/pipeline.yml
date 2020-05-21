@@ -1,6 +1,6 @@
 steps:
-- label: ":build: Build"
-  command: make
+- label: ":package:"
+  command: "go version"
   timeout_in_minutes: 15
   plugins:
     - docker#v3.3.0:
@@ -8,12 +8,8 @@ steps:
         always-pull: true
         propagate-environment: true
         shell: ["/bin/bash", "-e", "-c"]
-        environment:
-          - DATADOG_API_KEY
-          - DATADOG_APP_KEY
-          - SLACK_API_TOKEN
-- label: ":lint: Lint"
-  command: echo "lint"
+- label: ":lint-roller: Run Linting"
+  command: "echo 'lint'"
   timeout_in_minutes: 15
   plugins:
     - docker#v3.3.0:
@@ -21,7 +17,3 @@ steps:
         always-pull: true
         propagate-environment: true
         shell: ["/bin/bash", "-e", "-c"]
-        environment:
-          - DATADOG_API_KEY
-          - DATADOG_APP_KEY
-          - SLACK_API_TOKEN
