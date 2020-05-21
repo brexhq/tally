@@ -1,21 +1,10 @@
 steps:
-- label: "Build"
+- label: ":build: Build"
   command: make
   timeout_in_minutes: 15
   plugins:
-    - seek-oss/aws-sm#v2.0.0:
-        env:
-          DATADOG_API_KEY:
-            secret-id: "buildkite-credentials"
-            json-key: ".DATADOG_API_KEY_STAGING"
-          DATADOG_APP_KEY:
-            secret-id: "buildkite-credentials"
-            json-key: ".DATADOG_APP_KEY_STAGING"
-          SLACK_API_TOKEN:
-            secret-id: "buildkite-credentials"
-            json-key: ".SLACK_API_TOKEN"
     - docker#v3.3.0:
-        image: "776709147254.dkr.ecr.us-west-2.amazonaws.com/circleci:master"
+        image: "golang:1.14.3-buster"
         always-pull: true
         propagate-environment: true
         shell: ["/bin/bash", "-e", "-c"]
@@ -23,23 +12,12 @@ steps:
           - DATADOG_API_KEY
           - DATADOG_APP_KEY
           - SLACK_API_TOKEN
-- label: "Lint"
+- label: ":lint: Lint"
   command: echo "lint"
   timeout_in_minutes: 15
   plugins:
-    - seek-oss/aws-sm#v2.0.0:
-        env:
-          DATADOG_API_KEY:
-            secret-id: "buildkite-credentials"
-            json-key: ".DATADOG_API_KEY_STAGING"
-          DATADOG_APP_KEY:
-            secret-id: "buildkite-credentials"
-            json-key: ".DATADOG_APP_KEY_STAGING"
-          SLACK_API_TOKEN:
-            secret-id: "buildkite-credentials"
-            json-key: ".SLACK_API_TOKEN"
     - docker#v3.3.0:
-        image: "776709147254.dkr.ecr.us-west-2.amazonaws.com/circleci:master"
+        image: "ubuntu:18.04"
         always-pull: true
         propagate-environment: true
         shell: ["/bin/bash", "-e", "-c"]
